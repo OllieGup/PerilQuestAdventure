@@ -1,0 +1,141 @@
+<!-- This is the landing/intro page for my game -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peril Quest - Start</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        header {
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            border: 1px solid #fff;
+            border-radius: 5px;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        button {
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Peril Quest - You've arrived at:</h1>
+        <h1>The offices of Vipercall Technologies.</h1>
+        <p>This is where your adventure begins...</p>
+    </header>
+    <main>
+        
+        <section>
+            <h2></h2>
+            <p id="paragraph1"></p>
+            <p id="paragraph2"></p>
+            <p id="paragraph3"></p>
+            <p id="paragraph4"></p>
+                        
+            <!-- Add any game instructions or background story here -->
+        </section>
+        
+        <script>
+            function displayParagraphWithDelay(paragraphId, text, delayMs) {
+                setTimeout(function() {
+                    document.getElementById(paragraphId).textContent = text;
+                }, delayMs);
+
+            }
+
+
+            displayParagraphWithDelay("paragraph1", "Instructions (please wait while they load...)", 5000); // 5-second delay
+            displayParagraphWithDelay("paragraph2", "You must navigate through your first day working at the office. Keep your nose clean.", 10000); // 5-second delay
+            displayParagraphWithDelay("paragraph3", "Blend in. And find your way to Studio X......", 15000); // 15-second delay
+            displayParagraphWithDelay("paragraph4", "Press Enter to start Your Adventure>>>", 20000); // 15-second delay
+
+
+        </script>
+        
+            <section>
+            
+                <form action="/play" method="POST">
+                    <!-- Use JavaScript to automatically submit the form when Enter key is pressed -->
+                    <script>
+                        document.addEventListener('keydown', function(event) {
+                            if (event.key === 'Enter') {
+                                event.preventDefault();
+                                document.querySelector('form').submit();
+                            }
+                        });
+                    </script>
+                </form>
+            </section>
+        </main>
+        <footer>
+        <!-- Add any footer content or copyright information here -->
+        <h2>The game was developed by Peddleboy Copyright (c) 2023 of Auspicious Adventures</h2>
+    </footer>
+    <script>
+        function displayInstructionWithDelay(instructionId, text, delayMs) {
+            setTimeout(function() {
+                document.getElementById(instructionId).textContent = text;
+            }, delayMs);
+        }
+
+        // Usage: Call displayInstructionWithDelay for each instruction
+        displayInstructionWithDelay("instruction1", "You must navigate the way through your first day at the office. Keep your nose clean.", 1000); // 1-second delay
+        displayInstructionWithDelay("instruction2", "Blend in. And find your way to Studio X...", 3000); // 3-second delay
+        
+        // Add more instructions and delays as needed
+    </script>
+
+</body>
+</html>

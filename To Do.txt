@@ -1,0 +1,15 @@
+Project ID: hello-app-399314
+	    hello-app-399314
+
+perilquestadv
+
+1. Add the Flask code to my PQ script to use the app.routes
+2. create HTML templates (index.html and game.html) to display the game content 
+and forms for user input
+
+It has been reccomended that For implementing the dice rolling and score-keeping functionality, 
+you should primarily work in the Flask Python file (app.py) and use JavaScript in the HTML file (game.html)
+to interact with the user and display the results.
+
+Look at the texts in index and into files as some are the same or too similar
+

@@ -1,0 +1,148 @@
+<!-- This is the game content and initial option -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peril Quest - Game</title>
+    <style>
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        header {
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        button {
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 14px;
+            margin: 0;
+        }
+
+/* Styles for the new skill scores section */
+#scores {
+            position: absolute;
+            top: -20px; /* Adjust this value as needed for vertical positioning */
+            right: 500px; /* Adjust this value as needed for horizontal positioning */
+            border: 1px solid #fff;
+            border-radius: 3px;
+            padding: 5px;
+        }
+
+    #scores h2 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    #scores p {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+    </style>
+
+
+
+</head>
+<body>
+    <header>
+        <h1>Peril Quest - Stage 1 - The Office</h1>
+        <section id="scores" class="hidden">
+            <h2>Scores</h2>
+            <p>Skill: <span id="skillScore">0</span></p>
+            <p>Stamina: <span id="staminaScore">0</span></p>
+            <p>Luck: <span id="luckScore">0</span></p>
+        </section>
+        <!-- Add a description or title for the current game stage -->
+    </header>
+    <main>
+        
+
+        <!-- Add the main content of the game here -->
+        <section>
+            <h2>Game Scenario (Please wait while it loads...)</h2>
+            <p id="paragraph1"></p>
+            <p id="paragraph2"></p>
+            <p id="paragraph3"></p>
+            <p id="paragraph4"></p>
+            
+            
+            <!-- Add more paragraphs as needed -->
+        </section>
+        <script>
+            function displayParagraphWithDelay(paragraphId, text, delayMs) {
+                setTimeout(function() {
+                    document.getElementById(paragraphId).textContent = text;
+                }, delayMs);
+            }
+    
+            // Set the delays for each paragraph to ensure they run in order
+            displayParagraphWithDelay("paragraph1", "Your sitting at your desk and you look around.", 5000); // 5-second delay
+            displayParagraphWithDelay("paragraph2", "WHAT WILL YOU DO?.", 7000); // 7-second delay
+            displayParagraphWithDelay("paragraph3", "1 - Smile at a colleague dressed in a rock band t-shirt and beanie hat sitting opposite you?...", 8000); // 15-second delay
+            displayParagraphWithDelay("paragraph4", "2 - Offer to make the boss a coffee?.", 10000); // 20-second delay
+            
+            // Add more paragraphs and delays as needed
+        </script>
+
+
+
+
+
+    </main>
+    <footer>
+        <!-- Add any footer content or game progress information here -->
+    </footer>
+    
+
+    
+<script src="game.js"></script>
+</body>
+</html>

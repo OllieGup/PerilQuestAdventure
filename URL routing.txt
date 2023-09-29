@@ -1,0 +1,5 @@
+Route URL mapping
+
+Intro (landing page)
+Roll (start of game including 1st roll)
+GameQ1 (start of game, 1st set of questions and first test) 
