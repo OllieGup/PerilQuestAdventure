@@ -93,6 +93,19 @@
     }
     </style>
 
+<style>
+    /* Your existing CSS rules */
+
+    /* Styles for the new score-text and score-button */
+    .score-text {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .score-button {
+        display: inline-block;
+    }
+</style>
 
 
 </head>
@@ -104,8 +117,9 @@
         <section id="scores" class="hidden">
             <h2>Scores</h2>
             <p>Skill: <span id="skillScore">0</span></p>
-            <p>Stamina: <span id="staminaScore">0</span></p>
             <p>Luck: <span id="luckScore">0</span></p>
+            <p>Stamina: <span id="staminaScore">0</span></p>
+            
         </section>
         <!-- Add a description or title for the current game stage -->
     
@@ -117,7 +131,7 @@
       <script>
         var i = 0;
         var txt = "Before embarking on your venture, you must first establish some initial strengths. \n\nYou have been preparing for this quest for quite some time, by learning technology and gaming skills, some of which you have become highly knowledgeable in. \n\nTo progress to each new level you will have to navigate through various scenarios, using your luck and skill scores, and hold a decent stamina score to progress to the next stage. \n\nIt's time to start your adventure. \n\nPress Roll to roll the dice to determine your initial SKILL, STAMINA and LUCK score...";
-        var speed = 50;
+        var speed = 40;
         
         function typeWriter() {
             if (i < txt.length) {
@@ -129,7 +143,7 @@
             setTimeout(typeWriter, speed);
         } else {
                 // Typewriter text has finished, show the "Start Adventure" button
-                document.getElementById("introRollButton").style.display = "inline-block";
+                document.getElementById("diceRollerButton").style.display = "inline-block";
   }
 }
 
@@ -138,21 +152,31 @@
         typeWriter();
     };
         </script>
-        <section>
-            <!-- Display game feedback, outcomes, or additional information here -->
+
+        <!-- Display the message and a "Continue" button -->
+        <section id="scoreMessage" style="display: none;">
+            <div class="score-text">
+                <p>Below are your initial scores!</p>
+            </div>
+            <div class="score-button">
+                <button id="continueButton" type="button" onclick="continueToNextStage()">Continue</button>
+            </div>
         </section>
+        
 
     
         
         <section>
             <h2 id="diceRollerTitle" style="display: none;">Dice Roller</h2>
-            <div id="introRollResults"></div> <!-- This is where the results will be displayed -->
-            <button id="introRollButton" style="display: none;" type="button" onclick="introRollDice()">Roll</button>
+            <div id="diceResults" style="display: none;"></div>
+            <button id="diceRollerButton" style="display: none;" type="button" onclick="introRollDice()">Roll</button>
+
         </section>
+        
         
 
 
-    </main>
+
     <footer>
         <h2>The game was developed by Peddleboy Copyright (c) 2023 of Auspicious Adventures</h2>
     </footer>
@@ -167,25 +191,42 @@ function getRandomNumber(min, max) {
 
 // Function to roll two dice and update scores
 function introRollDice() {
-    // Roll two dice (each with values from 1 to 6)
-    var dice1 = getRandomNumber(1, 6);
-    var dice2 = getRandomNumber(1, 6);
+    // Disable the "Roll" button
+    document.getElementById("diceRollerButton").disabled = true;
+    
+    // Roll two dice (each with values from 1 to 6) for skill
+    var dice1Skill = getRandomNumber(1, 6);
+    var dice2Skill = getRandomNumber(1, 6);
 
-    // Calculate skill, luck, and stamina scores
-    var skillScore = dice1 + dice2;
-    var luckScore = getRandomNumber(1, 6);
-    var staminaScore = getRandomNumber(1, 6);
+    // Calculate skill score
+    var skillScore = dice1Skill + dice2Skill;
+
+    // Roll two dice (each with values from 1 to 6) for luck
+    var dice1Luck = getRandomNumber(1, 6);
+    var dice2Luck = getRandomNumber(1, 6);
+
+    // Calculate luck score
+    var luckScore = dice1Luck + dice2Luck;
+
+    // Roll two dice (each with values from 1 to 6) for stamina
+    var dice1Stamina = getRandomNumber(1, 6);
+    var dice2Stamina = getRandomNumber(1, 6);
+    
+    // Calculate stamina score
+    var staminaScore = dice1Stamina + dice2Stamina;
 
     // Display the rolled values and scores
     document.getElementById("diceRollerTitle").style.display = "block";
-    document.getElementById("diceRollerTitle").innerHTML = "Dice Roller Results";
-    document.getElementById("introRollButton").style.display = "none";
-    document.getElementById("introRollResults").innerHTML = "Dice 1: " + dice1 + "<br>Dice 2: " + dice2 + "<br>Skill: " + skillScore + "<br>Luck: " + luckScore + "<br>Stamina: " + staminaScore;
+    document.getElementById("diceResults").style.display = "block";
+    document.getElementById("diceResults").innerHTML = "Skill: " + dice1Skill + " + " + dice2Skill + " = " + skillScore + "<br>Luck: " + dice1Luck + " + " + dice2Luck + " = " + luckScore + "<br>Stamina: " + dice1Stamina + " + " + dice2Stamina + " = " + staminaScore;
 
     // Update the hidden input fields with the scores
     document.getElementById("skillScore").textContent = skillScore;
     document.getElementById("luckScore").textContent = luckScore;
     document.getElementById("staminaScore").textContent = staminaScore;
+
+    // Display the score message and "Continue" button
+    document.getElementById("scoreMessage").style.display = "block";
 }
 
 
