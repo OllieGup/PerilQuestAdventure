@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 import random
 
 app = Flask(__name__)
+app.static_folder = 'static'
 
 # Your existing code for functions, dice rolls, and game logic goes here
 # ...

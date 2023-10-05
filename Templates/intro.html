@@ -6,95 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peril Quest - Start</title>
-    <style>
-
-        #intro {
-        margin-top: 60px; /* This gives some space between the Scores box and the printed text */
-    }
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: monospace;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        header {
-            padding: 20px;
-        }
-        
-        h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        section {
-            
-            margin: 20px 0;
-            padding: 20px;
-        }
-
-        button {
-            background-color: #fff;
-            border: none;
-            border-radius: 5px;
-            color: #000;
-            cursor: pointer;
-            font-size: 18px;
-            padding: 10px 20px;
-        }
-
-        button:hover {
-            background-color: #ddd;
-        }
-
-        footer {
-            background-color: #000;
-            padding: 10px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-        h2 {
-            font-size: 14px;
-            margin: 0;
-        }
-
-/* Styles for the new skill scores section */
-#scores {
-            position: absolute;
-            top: -20px; /* Adjust this value as needed for vertical positioning */
-            right: 200px; /* Adjust this value as needed for horizontal positioning */
-            border: 1px solid #fff;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-    #scores h2 {
-        font-size: 18px;
-        margin: 0;
-    }
-
-    #scores p {
-        font-size: 16px;
-        margin: 5px 0;
-        
-    }
-
-    </style>
-
-    </head>
+    <link rel="stylesheet" href="../static/js/style.css">
+    
+</head>
 
 <body>
     <header>
@@ -118,37 +32,14 @@
     <button id="startButton" style="display: none;" onclick="window.location.href='/roll'">Start Adventure</button>
 
 
-    <script>
-        var i = 0;
-        var txt = "Welcome to Stage 1. The offices of VIPERCALL TECHNOLOGIES - YOUR FIRST DAY. \n\nYou are a keen gamer with decent technology skills and last week you finished working your dead-end job as a fast-food delivery rider. \n\nYou have just landed a job at a technology company who investigates online scams. \n\nThere is something new on the market - a groundbreaking and eagerly awaited video game called Peril Quest, \n\npowered by the first neural network games engine where players can enter breathtakingly realistic realms.\n\nAnd it's within this game that some of the most prolific online scams are currently taking place....";
-        var speed = 40;
-        
-        
-        function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("intro").innerHTML += txt.charAt(i);
-                if (txt.charAt(i) === '\n') {
-            document.getElementById("intro").innerHTML += '<br>'; // Convert newline characters to HTML line breaks
-            }
-            i++;
-            setTimeout(typeWriter, speed)
-        } else {
-                // Typewriter text has finished, show the "Start Adventure" button
-                document.getElementById("startButton").style.display = "inline-block";
-  }
-}
-
-        // Call the typeWriter function when the page is fully loaded
-    window.onload = function() {
-        typeWriter();
-    };
-        </script>
- 
- 
+    
  <footer>
     <!-- Add any footer content or copyright information here -->
     <h2>The game was developed by Peddleboy Copyright (c) 2023 of Auspicious Adventures</h2>
 </footer> 
+
+
+<script src="{{ url_for('static', filename='js/intro.js') }}"></script>
 </body>
 </html>
 
