@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var staminaScoreString = staminaScore.toString();
 
     // Populate the scores box with the retrieved values
-    document.getElementById("skillScore").textContent = "Skill: " + skillScoreString;
-    document.getElementById("luckScore").textContent = "Luck: " + luckScoreString;
-    document.getElementById("staminaScore").textContent = "Stamina: " + staminaScoreString;
+    document.getElementById("skillScore").textContent = + skillScoreString;
+    document.getElementById("luckScore").textContent = + luckScoreString;
+    document.getElementById("staminaScore").textContent = + staminaScoreString;
 });
 
 
